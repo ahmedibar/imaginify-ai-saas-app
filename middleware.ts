@@ -2,7 +2,7 @@ import { authMiddleware } from "@clerk/nextjs";
 
 export default authMiddleware({
   // Allow signed out users to access the specified routes:
-  publicRoutes: ["/api/webhooks/clerk"],
+  publicRoutes: ["/", "/api/webhooks/clerk"],
   // Prevent the specified routes from accessing
   // authentication information:
   // ignoredRoutes: ['/no-auth-in-this-route'],
@@ -15,6 +15,7 @@ export const config = {
 
     "/((?!.+\\.[\\w]+$|_next).*)",
     // Re-include any files in the api or trpc folders that might have an extension
+    "/",
     "/(api|trpc)(.*)",
   ],
 };
