@@ -47,7 +47,8 @@ const Checkout = ({
     }
   }, []);
 
-  const onCheckout = async () => {
+  const onCheckout = async (e: any) => {
+    e.preventDefault();
     const transaction = {
       plan,
       amount,
@@ -59,7 +60,7 @@ const Checkout = ({
   };
 
   return (
-    <form action={onCheckout} method="POST">
+    <form onSubmit={onCheckout} method="POST">
       <section>
         <Button
           type="submit"
